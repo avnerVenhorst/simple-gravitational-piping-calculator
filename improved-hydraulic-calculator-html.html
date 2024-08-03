@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון זרימה בצינורות</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>מחשבון זרימה בצינורות</h1>
+        <form id="hydraulicForm">
+            <div class="input-group">
+                <label for="pipeDiameter">קוטר הצינור:</label>
+                <div class="input-with-unit">
+                    <input type="number" id="pipeDiameter" name="pipeDiameter" required>
+                    <select id="pipeDiameterUnit">
+                        <option value='מ"מ'>מ"מ</option>
+                        <option value="ס&quot;מ">ס"מ</option>
+                        <option value="מטר">מטר</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="pipeSlope">שיפוע הצינור:</label>
+                <div class="input-with-unit">
+                    <input type="number" id="pipeSlope" name="pipeSlope" required>
+                    <select id="pipeSlopeUnit">
+                        <option value="%">%</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="pipeType">סוג הצינור (לא חובה):</label>
+                <select id="pipeType" name="pipeType">
+                    <option value="">בחר סוג צינור</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="manningCoefficient">מקדם מאנינג:</label>
+                <input type="number" id="manningCoefficient" name="manningCoefficient" required>
+            </div>
+            <div class="input-group">
+                <label for="flowRate">ספיקה (השאר ריק לחישוב ספיקה מרבית):</label>
+                <div class="input-with-unit">
+                    <input type="number" id="flowRate" name="flowRate">
+                    <select id="flowRateUnit">
+                        <option value="ל/שניה">ל'/שנייה</option>
+                        <option value='מ"ק/שעה'>מ"ק/שעה</option>
+                        <option value='מ"ק/שניה'>מ"ק/שנייה</option>
+                    </select>
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="button" id="calculateBtn">חשב</button>
+                <button type="button" id="showFormulaBtn">הצג נוסחאות וחישובים</button>
+            </div>
+        </form>
+        <div id="result" class="hidden">
+            <h2>תוצאות:</h2>
+            <div id="resultContent"></div>
+        </div>
+        <div id="warning" class="hidden"></div>
+    </div>
+    <div id="modal" class="hidden">
+        <div class="modal-content">
+            <h3>נוסחאות, חישובים מפורטים וטבלת מקדמי מאנינג</h3>
+            <div id="modalContent"></div>
+            <button id="closeModalBtn">סגור</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
